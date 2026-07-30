@@ -18,9 +18,9 @@ OPENAI_CONFIG = {
     "base_url": "https://api.openai.com/v1",
 }
 
-# ==================== 阿里百炼 ====================
-DASHSCOPE_CONFIG = {
-    "api_key": os.getenv("DASHSCOPE_API_KEY"),
+# ==================== 通义千问 ====================
+QWEN_CONFIG = {
+    "api_key": os.getenv("QWEN_API_KEY"),
     "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
 }
 
