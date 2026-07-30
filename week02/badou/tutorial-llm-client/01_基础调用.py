@@ -1,5 +1,6 @@
 import os
 from openai import OpenAI # 结合openai sdk 调用deepseek 模型
+from openai.types.chat import ChatCompletion
 
 # llm client
 client = OpenAI(
@@ -23,8 +24,12 @@ response = client.chat.completions.create(
     extra_body={"thinking": {"type": "enabled"}} # 是否打开思考
 )
 
+# 注：stream=False 时返回的实际上是 ChatCompletion，不是 Stream
+# 但 openai SDK 的 create() 返回类型是 ChatCompletion | Stream 联合类型
+# 这里用 ChatCompletion 类型声明结果变量，类型检查器就能认出 .choices
+completion: ChatCompletion = response  # type: ignore[assignment]
 print(response) # 完整的大大模型的回复： 包含回答 + token消耗 + 回答过程相关的信息
-print(response.choices[0].message.content) # 大模型回答的文本结果
+print(completion.choices[0].message.content)
 
 """
         {"role": "system", "content": "You are a helpful assistant"},
