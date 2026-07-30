@@ -12,5 +12,8 @@ build/
 # IDE
 .idea/
 
+# Environment
+.env
+
 # Jupyter
 .ipynb_checkpoints/
