@@ -1,11 +1,12 @@
 import os
 from openai import OpenAI # 结合openai sdk 调用deepseek 模型
 from openai.types.chat import ChatCompletion
+from llm_config import DEEPSEEK_CONFIG
 
 # llm client
 client = OpenAI(
-    api_key="sk-86fec757d81a42b0bf6a8a514d55a9c7", # 大模型厂商后台页面 创建api key ，计费  / 并发 / 账单
-    base_url="https://api.deepseek.com" # 服务地址，云端地址，运算大模型
+    api_key=DEEPSEEK_CONFIG["api_key"], # 大模型厂商后台页面 创建api key ，计费  / 并发 / 账单
+    base_url=DEEPSEEK_CONFIG["base_url"], # 服务地址，云端地址，运算大模型
 )
 
 # 创建了一个和大模型对话的请求

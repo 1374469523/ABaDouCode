@@ -11,10 +11,11 @@
 """
 
 from openai import OpenAI
+from llm_config import DEEPSEEK_CONFIG
 
 client = OpenAI(
-    api_key="sk-e16dfcaa8c7e43908ae4d922f96c4a8f",
-    base_url="https://api.deepseek.com")
+    api_key=DEEPSEEK_CONFIG["api_key"],
+    base_url=DEEPSEEK_CONFIG["base_url"])
 
 import re
 from collections import Counter

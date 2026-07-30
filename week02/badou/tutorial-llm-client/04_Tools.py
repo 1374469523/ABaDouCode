@@ -7,10 +7,11 @@ API 参考：https://platform.openai.com/docs/guides/function-calling
 import json
 import math
 from openai import OpenAI
+from llm_config import DEEPSEEK_CONFIG
 
 client = OpenAI(
-    api_key="sk-86fec757d81a42b0bf6a8a514d55a9c7",
-    base_url="https://api.deepseek.com",
+    api_key=DEEPSEEK_CONFIG["api_key"],
+    base_url=DEEPSEEK_CONFIG["base_url"],
 )
 
 # ═════════════════════════════════════════════════════════════════════════════
