@@ -3,6 +3,7 @@ import jieba
 from sklearn.feature_extraction.text import CountVectorizer # 词频统计
 from sklearn.neighbors import KNeighborsClassifier # KNN
 from openai import OpenAI
+from llm_config import DEEPSEEK_CONFIG
 
 dataset = pd.read_csv("dataset.csv", sep="\t", header=None, nrows=10000)
 print(dataset[1].value_counts())
@@ -18,12 +19,8 @@ model.fit(input_feature, dataset[1].values)
 
 
 client = OpenAI(
-    # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
-    # https://bailian.console.aliyun.com/?tab=model#/api-key
-    api_key="sk-026bc9ed889740aa948ebf5b06ebbe99", # 账号绑定，用来计费的
-
-    # 大模型厂商的地址，阿里云
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    api_key=DEEPSEEK_CONFIG["api_key"],
+    base_url=DEEPSEEK_CONFIG["base_url"],
 )
 
 def text_calssify_using_ml(text: str) -> str:
@@ -39,7 +36,7 @@ def text_calssify_using_llm(text: str) -> str:
     文本分类（大语言模型），输入文本完成类别划分
     """
     completion = client.chat.completions.create(
-        model="qwen-flash",  # 模型的代号
+        model="deepseek-v4-flash",  # 模型的代号
 
         messages=[
             {"role": "user", "content": f"""帮我进行文本分类：{text}

@@ -2,19 +2,16 @@ import os
 
 # pip install openai
 from openai import OpenAI
+from llm_config import DEEPSEEK_CONFIG
 
 client = OpenAI(
-    # 若没有配置环境变量，请用百炼API Key将下行替换为：api_key="sk-xxx",
-    # https://bailian.console.aliyun.com/?tab=model#/api-key
-    api_key="sk-026bc9ed889740aa948ebf5b06ebbe99", # 账号绑定，用来计费的
-
-    # 大模型厂商的地址，阿里云
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    api_key=DEEPSEEK_CONFIG["api_key"],
+    base_url=DEEPSEEK_CONFIG["base_url"],
 )
 
 completion = client.chat.completions.create(
     # 模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
-    model="qwen-flash", # 模型的代号
+    model="deepseek-v4-flash", # 模型的代号
 
     # 对话列表
     messages=[
