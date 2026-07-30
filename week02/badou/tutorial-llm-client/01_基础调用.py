@@ -1,0 +1,41 @@
+import os
+from openai import OpenAI # 结合openai sdk 调用deepseek 模型
+
+# llm client
+client = OpenAI(
+    api_key="sk-86fec757d81a42b0bf6a8a514d55a9c7", # 大模型厂商后台页面 创建api key ，计费  / 并发 / 账单
+    base_url="https://api.deepseek.com" # 服务地址，云端地址，运算大模型
+)
+
+# 创建了一个和大模型对话的请求
+response = client.chat.completions.create(
+    model="deepseek-v4-flash", # 模型名称
+
+    # 历史对话， 基于 历史对话，生成后序的回答
+    # 历史对话 -》 大模型 -》 下一轮回答
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "你好，帮我介绍机器学习"},
+        # {"role": "assistant", "content": "机器学习是一种基于计算机算法的机器学习方法，它可以从数据中自动学习并预测结果。"},
+    ],
+    stream=False, # 非流式，
+    reasoning_effort="high", # 思考能力。 高中低， 和 token 消耗，和 费用相关
+    extra_body={"thinking": {"type": "enabled"}} # 是否打开思考
+)
+
+print(response) # 完整的大大模型的回复： 包含回答 + token消耗 + 回答过程相关的信息
+print(response.choices[0].message.content) # 大模型回答的文本结果
+
+"""
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "你好，帮我介绍机器学习"}, <- 输入的提问， 对话列表长度2
+        
+        {"role": "assistant", "content": "机器学习是一种基于计算机算法的机器学习方法，它可以从数据中自动学习并预测结果。"},
+
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "你好，帮我介绍机器学习"},
+        {"role": "assistant", "content": "机器学习是一种基于计算机算法的机器学习方法，它可以从数据中自动学习并预测结果。"},
+        {"role": "user", "content": "你好，帮我介绍深度学习"}, <- 新输入的提问，对话长度4
+
+
+"""
