@@ -1,11 +1,12 @@
 from datetime import datetime
 from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
+from llm_config import DEEPSEEK_CONFIG
 
 model = ChatOpenAI(
-    model="qwen-flash", # 模型的代号
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-    api_key="sk-4fedee4ece6541d3b17a7173f0b3c16f"
+    model="deepseek-v4-flash", # 模型的代号
+    base_url=DEEPSEEK_CONFIG["base_url"],
+    api_key=DEEPSEEK_CONFIG["api_key"]
 )
 
 def get_weather_agent(city: str) -> str:

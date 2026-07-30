@@ -1,14 +1,15 @@
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
 from langchain_core.messages import AIMessage, HumanMessage
+from llm_config import DEEPSEEK_CONFIG
 # AIMessage 大模型对应的对话内容
 # HumanMessage 用户的对话内容
 
 # 连接openai 类型大模型的客户端
 llm = ChatOpenAI(
-    model="qwen-flash", # 模型的代号
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-    api_key="sk-4fedee4ece6541d3b17a7173f0b3c16f"
+    model="deepseek-v4-flash", # 模型的代号
+    base_url=DEEPSEEK_CONFIG["base_url"],
+    api_key=DEEPSEEK_CONFIG["api_key"]
 )
 
 response = llm.invoke("你好") # 默认输入user内容

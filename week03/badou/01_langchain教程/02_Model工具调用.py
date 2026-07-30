@@ -2,6 +2,7 @@ from langchain.agents import create_agent
 from langchain_openai import ChatOpenAI
 from langchain.messages import HumanMessage, AIMessage, SystemMessage
 from langchain.tools import tool
+from llm_config import DEEPSEEK_CONFIG
 
 @tool
 def get_weather(location: str) -> str:
@@ -18,9 +19,9 @@ def get_weather(location: str) -> str:
 
 
 model = ChatOpenAI(
-    model="qwen-flash", # 模型的代号
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-    api_key="sk-9c6195bf91f7435d88ea4b819073c92c"
+    model="deepseek-v4-flash", # 模型的代号
+    base_url=DEEPSEEK_CONFIG["base_url"],
+    api_key=DEEPSEEK_CONFIG["api_key"]
 )
 model_with_tools = model.bind_tools([get_weather])
 
