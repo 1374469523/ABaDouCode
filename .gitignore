@@ -17,3 +17,10 @@ build/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Model/runtime artifacts
+heima/day1/myTokenizer
+heima/day2/runs/
+
+# Large training corpora (>100MB, GitHub limits)
+heima/day2/data/
