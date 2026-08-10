@@ -9,8 +9,7 @@ build/
 # Virtual environment
 .venv/
 
-# IDE
-.idea/
+# IDE（个人状态由 .idea/.gitignore 精确忽略）
 
 # Environment
 .env

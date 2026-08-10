@@ -1,0 +1,7 @@
+# 默认忽略的文件
+/shelf/
+/workspace.xml
+# Claude Code 插件个人状态
+/claudeCodeTabState.xml
+# 基于编辑器的 HTTP 客户端请求
+/httpRequests/
