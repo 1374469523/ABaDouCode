@@ -1,26 +1,40 @@
+# ============================================================
+# 演示主题：指数加权平均（Exponentially Weighted Average, EWA）
+# 核心结论：
+#   1. 指数加权平均用于“平滑”带噪声的序列数据，公式：
+#        s[t] = beta * s[t-1] + (1 - beta) * x[t]
+#      其中 s 是加权平均结果，x 是当前值，beta 是衰减系数（通常取 0.9~0.999）。
+#   2. beta 越大，越看重历史、曲线越平滑，但反应越迟钝（滞后越大）；
+#      beta 越小，越看重当前值、越灵敏，但噪声也越多。
+#   3. 它近似等价于对最近约 1/(1-beta) 个时刻做平均。例如 beta=0.9 约等于对最近 10 个点取平均。
+#   4. 在深度学习中，Momentum（动量）、RMSprop、Adam 等优化器
+#      都利用了类似的思想来平滑梯度，让更新方向更稳定、更快收敛。
+# ============================================================
+
 import torch
 import matplotlib.pyplot as plt
-# 创建数据
-t = torch.randint(0,40,[30])
-print(t)
-days = torch.arange(0,30,1)
-plt.plot(days,t)
-plt.scatter(days,t)
+
+# 创建数据：模拟 30 天每天的气温（0~39 之间的随机整数，带有明显随机波动）
+t = torch.randint(0,40,[30])   # 生成 30 个 [0,40) 的随机整数，作为“原始观测值”
+print(t)                       # 打印原始数据
+days = torch.arange(0,30,1)    # 天数序列 [0,1,2,...,29]，作为横轴
+plt.plot(days,t)               # 折线图：原始数据波动很剧烈
+plt.scatter(days,t)            # 散点图：标出每个数据点
 plt.show()
 
-# 指数加权平均
-t_avg = []
-beta = 0.9
-for i,temp in enumerate(t):
-    if i == 0:
+# 指数加权平均：用滑动平均把剧烈波动的曲线变平滑
+t_avg = []                     # 存放每个时刻的加权平均值
+beta = 0.9                     # 衰减系数：0.9 表示约对最近 10 个点取平均
+for i,temp in enumerate(t):    # 遍历每一天（temp 是第 i 天的气温）
+    if i == 0:                 # 第一天没有历史值，直接用当天温度作为初始值
         t_avg.append(temp)
         continue
-    # 公式
-    s =beta*t_avg[i-1]+(1-beta)*temp
-    t_avg.append(s)
+    # 公式：s[t] = beta * s[t-1] + (1-beta) * temp
+    s =beta*t_avg[i-1]+(1-beta)*temp   # 昨天的平均值占 90%，今天的新值占 10%
+    t_avg.append(s)                    # 把当天的加权平均值存入列表
 
-plt.plot(days,t_avg)
-plt.scatter(days,t)
+plt.plot(days,t_avg)           # 画平滑后的曲线：比原始数据平稳很多
+plt.scatter(days,t)            # 同时叠加原始数据点，便于对比
 plt.show()
-
-
+# 对比可见：指数加权平均曲线跟上了整体趋势，但滤掉了大部分随机抖动。
+# 这就是优化器中“动量（Momentum）”的思想雏形。
