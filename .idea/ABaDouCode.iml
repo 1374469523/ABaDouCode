@@ -14,6 +14,7 @@
       <sourceFolder url="file://$MODULE_DIR$/week03/badou" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week03/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week04/badou" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week04/作业" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/PythonProject/.venv" />
     </content>

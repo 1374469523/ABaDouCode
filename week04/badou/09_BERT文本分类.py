@@ -30,7 +30,7 @@ x_train, x_test, train_label, test_label = train_test_split(
 
 # 加载BERT预训练的分词器（Tokenizer）
 # 分词器负责将文本转换为模型可识别的输入ID、注意力掩码等
-tokenizer = BertTokenizer.from_pretrained('../models/google-bert/bert-base-chinese')
+tokenizer = BertTokenizer.from_pretrained('../../moudel/google-bert/bert-base-chinese')
 
 # 对训练集和测试集的文本进行编码
 # truncation=True：如果句子长度超过max_length，则截断
@@ -78,7 +78,7 @@ for batch_data in train_loader:
 # 加载BERT用于序列分类的预训练模型
 # num_labels=12：指定分类任务的类别数量
 # https://huggingface.co/docs/transformers/v4.56.0/en/model_doc/bert#transformers.BertForSequenceClassification
-model = BertForSequenceClassification.from_pretrained('../models/google-bert/bert-base-chinese', num_labels=17)
+model = BertForSequenceClassification.from_pretrained('../../moudel/google-bert/bert-base-chinese', num_labels=17)
 
 # 设置设备，优先使用CUDA（GPU），否则使用CPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

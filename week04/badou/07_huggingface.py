@@ -16,8 +16,8 @@ from transformers import AutoTokenizer, AutoModelForMaskedLM
 # https://www.modelscope.cn/models/google-bert/bert-base-chinese/
 
 # https://huggingface.co/google-bert/bert-base-chinese 谷歌官方推出原始的bert版本，用于中文的建模
-tokenizer = AutoTokenizer.from_pretrained("../models/google-bert/bert-base-chinese")
-model = AutoModelForMaskedLM.from_pretrained("../models/google-bert/bert-base-chinese") # 400mb
+tokenizer = AutoTokenizer.from_pretrained("../../moudel/google-bert/bert-base-chinese")
+model = AutoModelForMaskedLM.from_pretrained("../../moudel/google-bert/bert-base-chinese") # 400mb
 
 # 待处理的文本
 text = "我喜欢人工智能westart鋐" # 分词 subword

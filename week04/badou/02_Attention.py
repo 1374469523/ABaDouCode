@@ -4,7 +4,6 @@ import torch.nn.functional as F
 # 一个形状为 (batch_size, seq_len, feature_dim) 的张量（矩阵） x
 # 两个样本， 每个样本3 个词语长度，每个词语编码为4维
 x = torch.randn(2, 3, 4)  # (batch_size, seq_len, feature_dim)
-
 # 定义头数和每个头的维度
 num_heads = 2
 head_dim = 2

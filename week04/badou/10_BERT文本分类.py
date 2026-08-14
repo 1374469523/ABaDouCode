@@ -32,8 +32,8 @@ x_train, x_test, train_labels, test_labels = train_test_split(
 
 
 # 从预训练模型加载分词器和模型
-tokenizer = BertTokenizer.from_pretrained('../models/google-bert/bert-base-chinese')
-model = BertForSequenceClassification.from_pretrained('../models/google-bert/bert-base-chinese', num_labels=17)
+tokenizer = BertTokenizer.from_pretrained('../../moudel/google-bert/bert-base-chinese')
+model = BertForSequenceClassification.from_pretrained('../../moudel/google-bert/bert-base-chinese', num_labels=17)
 
 # 使用分词器对训练集和测试集的文本进行编码
 # truncation=True：如果文本过长则截断

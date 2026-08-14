@@ -24,3 +24,9 @@ heima/阶段7/day2/runs/
 # Large training corpora (>100MB, GitHub limits)
 heima/阶段7/day2/data/
 heima/阶段6/03-CNN/data/cifar-10-python.tar.gz
+
+# Large pre-trained models & training artifacts
+moudel/
+week04/badou/logs/
+week04/badou/results/
+week04/badou/bert_train.log
