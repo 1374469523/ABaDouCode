@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pkl
+*.pt
+weights/bert_checkpoints/
+weights/logs/
+app.log
