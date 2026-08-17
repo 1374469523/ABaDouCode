@@ -25,6 +25,15 @@ router = APIRouter(prefix="/admin/faqs", tags=["FAQ管理"])
 
 
 # ============================================
+# Dependencies
+# ============================================
+
+def get_current_user_dep(current_user: Optional[CurrentUser] = Depends(get_current_user_optional)) -> Optional[CurrentUser]:
+    """获取当前用户 (可选)"""
+    return current_user
+
+
+# ============================================
 # FAQ CRUD
 # ============================================
 

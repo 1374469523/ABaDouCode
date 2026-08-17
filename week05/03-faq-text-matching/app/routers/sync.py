@@ -2,7 +2,7 @@
 Sync API Router
 发布同步模块 - TEST → PROD
 """
-from typing import List
+from typing import List, Optional
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy import select, and_
 from sqlalchemy.orm import Session
@@ -20,6 +20,15 @@ from app.datamodels import (
 from app.exceptions import success, not_found, server_error, conflict
 
 router = APIRouter(prefix="/admin/sync", tags=["发布同步"])
+
+
+# ============================================
+# Dependencies
+# ============================================
+
+def get_current_user_dep(current_user: Optional[CurrentUser] = Depends(get_current_user_optional)) -> Optional[CurrentUser]:
+    """获取当前用户 (可选)"""
+    return current_user
 
 
 # ============================================
