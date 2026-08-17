@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$PROJECT_DIR$/week01">
+      <sourceFolder url="file://$PROJECT_DIR$/week01/badou" isTestSource="false" />
+      <sourceFolder url="file://$PROJECT_DIR$/week01/test" isTestSource="true" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module" module-name="ABaDouCode" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

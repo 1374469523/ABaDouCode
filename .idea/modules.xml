@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ABaDouCode.iml" filepath="$PROJECT_DIR$/.idea/ABaDouCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/week01.iml" filepath="$PROJECT_DIR$/.idea/week01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/week02.iml" filepath="$PROJECT_DIR$/.idea/week02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/week03.iml" filepath="$PROJECT_DIR$/.idea/week03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/week04.iml" filepath="$PROJECT_DIR$/.idea/week04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/week05.iml" filepath="$PROJECT_DIR$/.idea/week05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/heima.iml" filepath="$PROJECT_DIR$/.idea/heima.iml" />
     </modules>
   </component>
 </project>
