@@ -15,6 +15,8 @@
       <sourceFolder url="file://$MODULE_DIR$/week03/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week04/badou" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/week04/作业" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week05/03-faq-text-matching" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/week05/badou" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/PythonProject/.venv" />
     </content>
