@@ -11,7 +11,7 @@ from datasets import Dataset
 import numpy as np
 
 # 加载和预处理数据
-dataset_df = pd.read_csv("../Week01/dataset.csv", sep="\t", header=None)
+dataset_df = pd.read_csv("../resource/dataset.csv", sep="\t", header=None)
 
 # 初始化 LabelEncoder，用于将文本标签转换为数字标签
 lbl = LabelEncoder()
