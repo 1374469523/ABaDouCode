@@ -14,6 +14,9 @@ build/
 # Environment
 .env
 
+# Claude Code（个人本地配置，含 API 密钥，勿提交）
+.claude/settings.local.json
+
 # Jupyter
 .ipynb_checkpoints/
 

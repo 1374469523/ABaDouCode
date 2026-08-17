@@ -35,3 +35,13 @@ SPARK_CONFIG = {
     "api_key": os.getenv("SPARK_API_KEY"),
     "base_url": "https://spark-api-open.xf-yun.com/v1",
 }
+
+# ==================== MiniMax ====================
+# 注意：sk-cp- 开头的 key 是 Token Plan 订阅 key，仅走 Anthropic 兼容接口
+# （api.minimaxi.com/anthropic），不能用 OpenAI SDK 的 chat.completions 直连，
+# 需配合 Anthropic SDK / Claude Code 使用。
+# 若要走 OpenAI 兼容接口（https://api.minimaxi.com/v1），需另申请 Standard 计费 key。
+MINIMAX_CONFIG = {
+    "api_key": os.getenv("MINIMAX_API_KEY"),
+    "base_url": "https://api.minimaxi.com/anthropic",
+}
